@@ -2,16 +2,16 @@
   {
     "productId": 4321,
     "productName": "nokia",
-    "price": 76543.5
+    "price": 80000.5
   },
   {
     "productId": 3221,
     "productName": "Oneplus10T",
-    "price": 46843.5
+    "price": 70000.5
   },
   {
     "productId": 983,
     "productName": "samsung",
-    "price": 96763.5
+    "price": 60000.5
   }
 ]
