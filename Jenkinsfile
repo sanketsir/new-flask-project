@@ -43,7 +43,7 @@ stage('Docker Build') {
             steps {
                 script{
                 if(isUnix()){
-                sh "docker build -t  ."
+                sh "docker build -t ."
                 }
                 else{
                  bat "docker build -t ."
