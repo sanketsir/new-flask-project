@@ -1,46 +1,44 @@
 pipeline {
-agent any
-
-
-
+    agent any
 
 
 stages {
-stage('Build') {
-steps {
-// Get some code from a GitHub repository
-git url: 'https://github.com/sanketsir/new-flask-project.git'
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git url: 'https://github.com/sanketsir/new-flask-project.git'
 
-// Run Maven on a Unix agent.
-script{
-if(isUnix()){
-sh "pip install -r requirements.txt"
-}
-else{
-bat "pip install -r requirements.txt"
-}
-}
-}
-}
-
-
+                // Run Maven on a Unix agent.
+                script{
+                if(isUnix()){
+                sh "pip install -r requirements.txt"
+				}
+                else{
+                 bat "pip install -r requirements.txt"
+                 }
+                 }
+            }
+            }
 
 
-stage('Unit Test') {
-steps {
 
-// Run Maven on a Unix agent.
-script{
-if(isUnix()){
-sh "pytest"
-}
-else{
-bat "pytest"
-}
-}
-}
-}
-stage('Docker Build') {
+         stage('Unit Test') {
+            steps {
+
+                // Run Maven on a Unix agent.
+                script{
+                if(isUnix()){
+                sh "pytest"
+				}
+                else{
+                 bat "pytest"
+                 }
+                 }
+            }
+
+    	}
+
+    	stage('Docker Build') {
             steps {
                 script{
                 if(isUnix()){
@@ -53,6 +51,7 @@ stage('Docker Build') {
 
             }
         }
+
         stage('Docker Push') {
             steps {
                withCredentials([usernamePassword(credentialsId:'dockerHub',passwordVariable: 'dockerHubPassword',usernameVariable:'dockerHubUser')]){
@@ -62,8 +61,8 @@ stage('Docker Build') {
 
 
             }
-
     }
+
     stage('Kubernetes Pod') {
 
     steps {
@@ -94,6 +93,6 @@ stage('Docker Build') {
 
  }
 
-
-}
-}
+    
+    }
+   }

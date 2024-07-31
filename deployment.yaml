@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: python-app-deploy
-        image: kpradeep/python-app-new:2.0
+        image: kpradeep/newflaskapp:latest
         resources:
           limits:
             memory: "128Mi"
