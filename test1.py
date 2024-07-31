@@ -1,4 +1,0 @@
-
-
-def myfunc():
-   return "Hello" 
