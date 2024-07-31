@@ -11,6 +11,6 @@ def getAllProducts():  # put application's code here
 
 
 
-print("Hello")
+print("Hello world")
 if __name__ == '__main__':
     app.run()
