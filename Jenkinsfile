@@ -25,20 +25,19 @@ bat "pip install -r requirements.txt"
 
 
 
-stage('UI Test') {
-steps {
+stage('Docker Build') {
+            steps {
+                script{
+                if(isUnix()){
+                sh "docker build -t  sanket7420/newflask-app ."
+                }
+                else{
+                 bat "docker build -t  sanket7420/newflask-app ."
+                 }
+                 }
 
-// Run Maven on a Unix agent.
-script{
-if(isUnix()){
-sh "pytest"
-}
-else{
-bat "pytest"
-}
-}
+            }
+        }
 }
 
-}
-}
 }
