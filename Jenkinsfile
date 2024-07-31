@@ -9,7 +9,7 @@ stages {
 stage('Build') {
 steps {
 // Get some code from a GitHub repository
-git url: 'https://github.com/krishnamurthypradeep/newflaskproject.git'
+git url: 'https://github.com/krishnamurthypradeep/newflaskproject-1.git'
 
 // Run Maven on a Unix agent.
 script{
