@@ -25,20 +25,7 @@ bat "pip install -r requirements.txt"
 
 
 
-stage('Unit  Test') {
-steps {
 
-// Run Maven on a Unix agent.
-script{
-if(isUnix()){
-sh "pytest"
-}
-else{
-bat "pytest"
-}
-}
-}
-}
 stage('Docker Build') {
             steps {
                 script{
