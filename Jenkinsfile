@@ -14,10 +14,10 @@ git url: 'https://github.com/sanketsir/new-flask-project.git'
 // Run Maven on a Unix agent.
 script{
 if(isUnix()){
-sh ""
+sh "pip install -r requirements.txt"
 }
 else{
-bat "pip install -r requirements.txt "
+bat "pip install -r requirements.txt"
 }
 }
 }
